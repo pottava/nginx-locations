@@ -1,1 +1,6 @@
-# nginx-locations
+Nginx locations
+---
+
+```sh
+docker-compose up
+```

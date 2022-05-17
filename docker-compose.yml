@@ -1,0 +1,30 @@
+version: "2.4"
+
+services:
+
+  service-a:
+    image: gcr.io/pottava/re:v2.0
+    environment:
+    - Name=This is service A
+    - Version=v2.1
+
+  service-b:
+    image: gcr.io/pottava/re:v2.0
+    environment:
+    - Name=This is service B
+    - Version=v1.3
+
+  service-c:
+    image: gcr.io/pottava/re:v2.0
+    environment:
+    - Name=This is service C
+    - Version=v1.0
+
+  nginx:
+    build: nginx
+    links:
+    - "service-a"
+    - "service-b"
+    - "service-c"
+    ports:
+    - "8080:80"
